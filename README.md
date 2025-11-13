@@ -6,30 +6,47 @@ Refer to the [LazyVim documentation](https://lazyvim.github.io/installation) for
 ## Features
 
 ### Enabled LazyVim Extras
+
 - **AI**: Tabnine completion
 - **Editor**: Code outline viewer
 - **Formatting**: Prettier
 - **Languages**: Java, Python, Scala, TypeScript, Vue, YAML
 - **Utilities**: Project management
 
+### Colorscheme
+
+**Sandcastle** - A warm, earthy dark theme ported from Zed editor. Features a comfortable color palette with teal accents, sage greens, and warm oranges on a dark gray background.
+
+- Ported from [Zed Legacy: Sandcastle](https://github.com/zed-extensions/legacy-themes/blob/main/themes/sandcastle.json)
+- Full Treesitter support
+- LSP diagnostic colors
+- Customized for Telescope, Neo-tree, WhichKey, and Notify
+
+To change colorscheme, edit `lua/plugins/colorscheme.lua` or use `:colorscheme <name>` in Neovim.
+
 ### Custom Plugins
 
 #### Neo-tree Configuration
+
 File explorer configured to show hidden files and dotfiles by default.
 
 **Usage:**
+
 - `<leader>e` - Toggle file explorer (usually `Space + e`)
 
 #### Diffview
+
 Git diff viewer with enhanced visualization and merge conflict resolution.
 
 **Keybindings:**
-- `<leader>gd` - Open DiffView (compare working tree with index)
+i- `<leader>gd` - Open DiffView (compare working tree with index)
+
 - `<leader>gh` - Show file history for current file
 - `<leader>gH` - Show full repository history
 - `<leader>gc` - Close DiffView
 
 **Navigation in DiffView:**
+
 - `<tab>` / `<shift-tab>` - Navigate between changed files
 - `-` - Stage/unstage current change
 - `S` - Stage all changes
@@ -42,6 +59,7 @@ Git diff viewer with enhanced visualization and merge conflict resolution.
 - `i` - Toggle between list and tree view
 
 **Common Commands:**
+
 ```vim
 :DiffviewOpen           " Compare working tree vs index
 :DiffviewOpen HEAD      " Compare working tree vs HEAD
@@ -73,6 +91,8 @@ When you have merge conflicts, open DiffView to see a 3-way diff with conflict r
 ```
 ~/.config/nvim/
 ├── init.lua                    # Entry point
+├── colors/
+│   └── sandcastle.lua         # Sandcastle colorscheme
 ├── lua/
 │   ├── config/
 │   │   ├── lazy.lua           # Plugin manager setup
@@ -80,6 +100,7 @@ When you have merge conflicts, open DiffView to see a 3-way diff with conflict r
 │   │   ├── keymaps.lua        # Custom keymaps
 │   │   └── autocmds.lua       # Custom autocommands
 │   └── plugins/
+│       ├── colorscheme.lua    # Colorscheme configuration
 │       ├── neo-tree.lua       # File explorer config
 │       ├── diffview.lua       # Git diff viewer config
 │       └── example.lua        # Example plugin spec (disabled)
